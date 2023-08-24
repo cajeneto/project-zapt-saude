@@ -1,0 +1,98 @@
+/* line 5, ../../../Documents/zapt_saude/assets/scss/style.scss */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* line 14, ../../../Documents/zapt_saude/assets/scss/style.scss */
+body {
+  width: 100%;
+  height: 100vh;
+  background: #5054da;
+}
+
+/* line 22, ../../../Documents/zapt_saude/assets/scss/style.scss */
+.navigation {
+  display: flex;
+  background-color: #cde9c8;
+  font-size: 21px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  justify-content: space-between;
+  align-self: center;
+}
+
+/* line 29, ../../../Documents/zapt_saude/assets/scss/style.scss */
+.navigation #cadastro, .navigation #relatorio {
+  width: auto;
+  height: auto;
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+/* line 43, ../../../Documents/zapt_saude/assets/scss/style.scss */
+#menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  align-self: center;
+}
+
+/* line 53, ../../../Documents/zapt_saude/assets/scss/style.scss */
+.imgLogo {
+  display: block;
+  width: 10rem;
+  height: 5rem;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* line 64, ../../../Documents/zapt_saude/assets/scss/style.scss */
+.dadosPessoais {
+  display: grid;
+  margin: 1rem;
+  padding: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  align-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 5rem;
+  /* font-style: italic; */
+  font-weight: bold;
+  font-size: large;
+}
+
+/* line 77, ../../../Documents/zapt_saude/assets/scss/style.scss */
+.dadosPessoais p {
+  align-content: center;
+  margin-left: 10px;
+}
+
+/* line 86, ../../../Documents/zapt_saude/assets/scss/style.scss */
+input {
+  width: 20rem;
+  height: 1.5rem;
+  background-color: #cde9c8;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/* line 99, ../../../Documents/zapt_saude/assets/scss/style.scss */
+input:focus {
+  outline: 0;
+}
+
+/* line 103, ../../../Documents/zapt_saude/assets/scss/style.scss */
+.father {
+  display: flex;
+  width: 25rem;
+}
+
+/*# sourceMappingURL=style.css.map */

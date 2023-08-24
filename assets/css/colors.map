@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "colors.css",
+	"sources": [
+		"../scss/colors.scss"
+	],
+	"sourcesContent": [
+		"$verdeFundoNav: rgb(205, 233, 200);\r\n$roxoBackground: rgb(80,84,218);\r\n"
+	],
+	"names": [],
+	"mappings": ""
+}

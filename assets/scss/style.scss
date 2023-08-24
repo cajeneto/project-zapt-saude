@@ -1,0 +1,106 @@
+@import 'colors.scss';
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+
+}
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: $roxoBackground;
+
+}
+
+//barra de navegação
+.navigation { 
+    display: flex;
+    background-color: $verdeFundoNav;
+    font-size: 21px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: space-between;
+    align-self: center;
+        #cadastro, #relatorio {
+            width: auto ;
+            height:auto;
+            padding: 2px;
+            margin: 2px;
+            text-align: center;
+            align-content: center;
+            align-items: center;
+            
+        }
+
+}
+
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    align-self: center;
+
+}
+
+.imgLogo{
+    display: block;
+    width: 10rem;
+    height: 5rem;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+// FORMULÁRIO
+
+.dadosPessoais {
+    display: grid;
+    margin: 1rem;
+    padding: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    align-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 5rem;
+    /* font-style: italic; */
+    font-weight: bold;
+    font-size: large;
+            p {
+                align-content: center;
+                margin-left: 10px;
+            }
+
+    
+}
+
+// ESTILO DO INPUT 
+input {
+    width: 20rem;
+    height: 1.5rem;
+    background-color: $verdeFundoNav;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    
+    
+    
+
+}
+
+input:focus {
+    outline: 0;
+}
+
+.father {
+    display: flex;
+    width: 25rem;
+}
