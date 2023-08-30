@@ -1,41 +1,42 @@
-const inputNameComplete = document.querySelector("#inputNameComplete");
-const inputCPF = document.querySelector('#inputCPF');
-const inputCartaoSUS = document.querySelector("#inputCartaoSUS");
-const inputDN = document.querySelector("#inputDN");
-const inputENDER = document.querySelector("#inputENDER");
-const inputTITULO = document.querySelector("#inputTITULO");
+"use strict";
+
+/* const nomeTeste = 'JOSEFA DA SILVA NASCIMENTO DOS SANTOS';
+const cpfCria = 'JOAQUINA DA SILVA NASCIMENTO GOMES'
+const conteudoRegistro = document.querySelector(".conteudoRegistro"); */
+
+//console.log(conteudoRegistro);
 
 
+function create(){
 
-
-
-function cadastrarPaciente(){
+        // PEGA VALORES DOS INPUT's.
     const inputNameComplete = document.querySelector("#inputNameComplete").value;
-    const inputCPF = document.querySelector('#inputCPF').value;
-    const inputCartaoSUS = document.querySelector("#inputCartaoSUS").value;
-    const inputDN = document.querySelector("#inputDN").value;
-    const inputENDER = document.querySelector("#inputENDER").value;
-    const inputTITULO = document.querySelector("#inputTITULO").value;
+            
+    const inputNameResp = document.querySelector("#inputNameResp").value;
 
-    //const inputNameCompleteValue = inputNameComplete.value;
-    /* //console.log(
-        inputNameComplete,
-        inputCPF,
-        inputCartaoSUS,
-        inputDN,
-        inputENDER,
-        inputTITULO
-        ); */
+    // PEGA INFORMAÇÃO DO BLOCO .conteudoRegistro.
+    const conteudoRegistro = document.querySelector(".conteudoRegistro");
 
+    // INSERE BLOCO DE HTML DENTRO DO BLOCO .conteudoRegistro.
+const newNamePaciente = conteudoRegistro.innerHTML = `${conteudoRegistro.innerHTML} <div class="registroP">
+<p class="namePaciente"><strong>PACIENTE: ${inputNameComplete}</strong><br>MÃE: ${inputNameResp}</p> 
+
+<a href="#registros" target="_blank" rel="noopener noreferrer">
+    <img src="/assets/img/informacoes.png" alt="img-perfil-paciente" class="incon">
+</a>
+
+</div>`;
+    // LIMPAR CAMPOS DO INPUT.
+
+    setTimeout(() => {
+        document.querySelector("#inputNameComplete").value="";
+        document.querySelector("#inputNameResp").value=""
+    }, 100)
+    
+    return newNamePaciente;
+     
 }
 
-const DADOS_PACIENTE = {
-    nomeCompleto: inputNameComplete,
-    CPF: inputCPF,
-    CARTAO_SUS: inputCartaoSUS,
-    DATA_NASCIMENTO: inputDN,
-    ENDERECO: inputENDER,
-    TITULO_ELEITOR: inputTITULO
-}
 
-console.log(DADOS_PACIENTE);
+
+

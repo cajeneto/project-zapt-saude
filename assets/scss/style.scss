@@ -67,15 +67,53 @@ body {
 
 .conteudoPrincipal {
     display: flex;
-    gap: 3rem;
+    gap: 5rem;
     flex-direction: row;
     padding: 2rem;
     
 }
 
+.conteudoRegistro {
+    display: block;
+    background-color: $roxoBackground;
+    border: solid $verdeFundoNav;
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 40rem;
+    overflow-y: scroll;
+    height: 48rem;
+    
+        .mainRegistro {
+            h3 {
+                font-size: x-large;
+                text-align: center;
+                padding: 1rem;
 
+            }
+        }
+        
+        .registroP {
+            background-color:  $verdeFundoNav;
+            padding: 0.5rem;
+            border-radius: 10px;
+            margin: 10px;
+            flex-wrap: wrap;
+            display: grid;
+            
+            
+            //border: 0.5rem;
+                .incon, .a, .img-perfil {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    //background-color: $roxoBackground;
+                    border-radius: 10px;
+                    margin: 5px;
+                    
 
+                }
+        }
 
+}
 
 
 
