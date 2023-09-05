@@ -88,6 +88,8 @@ body {
                 font-size: x-large;
                 text-align: center;
                 padding: 1rem;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                
 
             }
         }
@@ -102,15 +104,47 @@ body {
             
             
             //border: 0.5rem;
-                .incon, .a, .img-perfil {
+
+            .incon-link {
+                //display: flex;
+                //justify-content: flex-start;
+                
+                
+                .link-a {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 1rem;
+                }
+                
+            }
+
+            //#a-link {
+                //background-color: floralwhite;
+            
+                
+            //}
+
+                .incon, .img-perfil {
                     width: 1.5rem;
                     height: 1.5rem;
                     //background-color: $roxoBackground;
                     border-radius: 10px;
                     margin: 5px;
-                    
 
                 }
+
+                #btn-imp {
+                    //width: 1.5rem;
+                   // height: 1.5rem;
+                    //background-color: $roxoBackground;
+                    //border-radius: 10px;
+                    margin: 5px;
+                    //border: none; 
+                }
+
+                
+                
         }
 
 }
@@ -142,6 +176,8 @@ body {
             }
             h1 {
                 text-align: center;
+                padding: 1rem;
+                margin-top: -6rem;
             }
             
             .nameComplete {
@@ -149,7 +185,7 @@ body {
                 flex-direction: row;
                 gap: 1rem;
                 flex-wrap: wrap;
-                justify-content: space-between;
+                justify-content: space-around;
                     #inputNameComplete{
                         width: 20rem;
                     }
@@ -175,15 +211,21 @@ body {
                 background-color: rgba(202, 243, 219, 0.781);
                 border-radius: 10px;
                 flex-wrap: wrap;
-                justify-content: space-between;
-                padding: 10px;
+                justify-content: space-around;
+                padding: 20px;
                 gap: 1rem;
+                
 
                     h2{
                         margin-left: 30%;
                         margin-right: 30%;
                         //height: 1.5rem;
                         margin-bottom: 10px;
+                        max-width: 1080px;
+                        min-width: 500px;
+                            
+
+                    
                     }
 
                     #inputNameResp{
@@ -244,21 +286,26 @@ input:focus {
     color: $roxoBackground;
     background-color: $verdeFundoNav;
     border: none;
-    width: 10rem;
-    height: 2rem;
+    width: 12rem;
+    height: 3rem;
     border-radius: 10px;
-    margin-left: 10rem;  
+    margin-left: 22rem;
+    margin-right: 20rem;  
     font-weight: bold;
     font-size: 1rem;
     padding: 0.5rem;
+    
 
            
 }
 
 #btnCadastro:hover{
-    background-color: rgb(77, 207, 105);
-    transition: 2ms;
+    background-color: $verdeFundoNav;
+    transition: 100ms;
     color: $roxoBackground;
     font-weight: bold;
+    font-size: 20px;
+    box-shadow: 2px 2px 20px 1px rgba(117, 117, 116, 0.678);
+    
     
 }   
