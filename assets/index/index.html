@@ -23,11 +23,11 @@
                 </div>
                 <!--                Formulário para cadastro-->
                 <div id="cadastro">
-                    <a href="#cadastro">CADASTRO</a>
+                    <a href="./index.html">CADASTRO</a>
                 </div>
                 <!--                    Relatório-->
                 <div id="relatorio">
-                    <a href="./formCadastro.html" target="_blank">RELATÓRIOS</a>
+                    <a href="./formCadastro.html">RELATÓRIOS</a>
                 <!--    Fim do cabeçalho-->
                 </div>
             </nav>
@@ -65,19 +65,19 @@
                                 <div class="">
                                     <div class="inputF">
                                         <p>CARTÃO SUS</p>
-                                        <input id="inputCartaoSUS" type="text" placeholder="">
+                                        <input id="inputCartaoSUS" type="text" placeholder="123 4567 8910 1112">
                                     </div>
                                 </div>
                                 <div class="">
                                     <div class="inputF">
                                         <p>RG</p>
-                                        <input id="inputRG" type="text" placeholder="">
+                                        <input id="inputRG" type="text" placeholder="123456-8">
                                     </div>
                                 </div>
                                 <div class="">
                                     <div class="inputF">
                                         <p>CONTATO</p>
-                                        <input id="inputContato" type="text" placeholder="Ex.: 82999322366">
+                                        <input id="inputContato" type="text" placeholder="Ex.: (82)99123-4567">
                                     </div>
                                 </div>
                             </div>           
@@ -152,17 +152,8 @@
                         <!-- FIM DADOS RESPONSÁVEL -->
 
                     </div>
-                        
-                        <!-- <div class="">
-                            <p>TÍTULO DE ELEITOR</p>
-                            <div class="inputF">
-                                <input id="inputTITULO" type="text" placeholder="">
-                            </div>
-                            
-                        </div> -->
-                        
-                        <!-- <button id="btnCadastro" type="button" onclick="create()">CADASTRAR</button> -->
                         <button id="btnCadastro" type="submit" >CADASTRAR</button>
+                        <!-- <button id="btnCadastro" class="teste" type="submit" >teste</button> -->
                     </div>
 
 
@@ -178,6 +169,7 @@
                             <a href="#registros" target="_blank" rel="noopener noreferrer">
                                 <img src="/assets/img/informacoes.png" alt="img-perfil-paciente" class="incon">
                             </a> -->
+                            
 
                     </div>
                     <!-- <div class="registroP">
@@ -226,6 +218,46 @@
     <!--    Fim do corpo-->
     <!--    Inicio do rodapé-->
     <!--        Copyright-->
+
+
+    <!-- <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAYuTeXoVD_bPDJmXFsmLg1jZnmCeoApWE",
+          authDomain: "zapt-saude-main.firebaseapp.com",
+          projectId: "zapt-saude-main",
+          storageBucket: "zapt-saude-main.appspot.com",
+          messagingSenderId: "323783024816",
+          appId: "1:323783024816:web:ee878fa77af952b335db75",
+          measurementId: "G-8WJ4W944C5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        console.log(app)
+
+        async function fetchData(db){
+            const docsCol = collection(db, 'mainCad');
+            const docSnap = await getDocs(docsCol)
+            const docList = docSnap.docs.map(doc=>doc.data())
+            return docList;
+        }
+
+        let main = await fetchData(db);
+        //console.log(main[0]);
+        //console.log(main[1]); 
+        
+      </script> -->
 
 
 

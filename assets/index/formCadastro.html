@@ -1,286 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style type="text/css">
-        
-        
-        body {
-    width: 100%;
-    height: 100vh;
-    
-}
+    <!-- CSS -->  
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Relatórios Zapt Saúde</title>
 
-
-.conteudoPrincipal {
-    display: flex;
-    flex-direction: row;
-    padding: 2rem;
-    
-}
-
-
-.conteudoRegistro {
-    display: block;
-    
-    padding: 0.5rem;
-    border-radius: 10px;
-    width: 40rem;
-    overflow-y: scroll;
-    height: 48rem;
-}
-        
-            
-
-                .mainRegistro {
-            h3 {
-                font-size: x-large;
-                text-align: center;
-                padding: 1rem;
-                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-                
-
-            }
-        }
-
-
-
-        .registroP {
-            padding: 0.5rem;
-            border-radius: 10px;
-            margin: 10px;
-            flex-wrap: wrap;
-            display: grid;
-        }
-            
-
-                .link-a {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    gap: 1rem;
-                    
-                }
-
-
-.imgLogo{
-    display: block;
-    width: 10rem;
-    height: 5rem;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-
-
-
-.dadosPessoais {
-    display: grid;
-    width: auto;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    align-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    font-size: large;
-}
-
-p {
-                align-content: center;
-                margin-left: 20px;
-                
-            }
-
-h1 {
-                text-align: center;
-                margin-top: 0.5rem;
-            }
-            
-
-            .nameComplete {
-                display: flex;
-                flex-direction: row;
-                gap: 5px;
-                flex-wrap: wrap;
-                justify-content: space-between;          
-
-     }
-
-
-.father1, .father2, .father3{
-                display: flex;
-                flex-direction: row;
-                background-color: rgba(179, 231, 201, 0.781);
-                border-radius: 10px;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                padding: 10px;
-                width: 60rem;
-                
-}
-
-h2 {
-    margin-left: 20rem;
-    margin-right: 10rem;
-}
-
-.imgLogo {
-    width: max-content;
-    height: 120px;
-    margin-left: 22rem;
-    
-}
-
-              
-
-
-
-
-
-
-            
-
-    
-
-
-
-    </style>
-
-
-    <title>DADOS PACIENTE</title>
-    
 </head>
 <body>
-    
-
-<div class="conteudoPrincipal">
-    
-    <div class="dadosPessoais">
-            <img class="imgLogo" src="/assets/img/zapt-saude-logo.jpeg" alt="">
-            <h1 class="titleSection">CADASTRO DE PACIENTE ZAPT SAÚDE</h1>
-            
 
 
-            <!--       INÍCIO DADOS CRIANÇA-->
-            <div class="father1">
-                <h2>DADOS DA CRIANÇA</h2>
-                <div class="nameComplete">
-                    
-                    <div class="input">
-                        <p >NOME COMPLETO: </p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                
-                    <div class="doughter">
-                        <div class="cpf">
-                            <p>CPF: </p>
-                            <p id="insereCPFCria"></p>
-                            <div class="input">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="inputF">
-                            <p>DATA DE NASCIMENTO: </p>
-                            <p id="insereDNCria"></p>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="inputF">
-                            <p>CARTÃO SUS</p>
-                            <p id="insereSUSCria"></p>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="inputF">
-                            <p>RG</p> 
-                            <p id="insereRGCria"></p>
-                            
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="inputF">
-                            <p>CONTATO</p>
-                            <p id="insereContatoCria"></p>
-                            
-                        </div>
-                    </div>
+    <head>
+            <!--    Cabeçalho-->
+        <div class="navigation">
+            <nav id="menu">
+                <div id="img-logo">
+                    <!--            Logo da empresa-->
+                    <a href="#inicio">
+                        <img class="imgLogo" src="/assets/img/zapt-saude-logo.jpeg" alt="">
+                    </a>
+                </div>
+                <!--                Formulário para cadastro-->
+                <div id="cadastro">
+                    <a href="./index.html">CADASTRO</a>
+                </div>
+                <!--                    Relatório-->
+                <div id="relatorio">
+                    <a href="./formCadastro.html">RELATÓRIOS</a>
+                <!--    Fim do cabeçalho-->
+                </div>
+            </nav>
+        </div>
+    </head>
+   
+    <!--        Início do conteúdo principal-->
+    <div class="relatoriosMain">  
+        <!--        Título-->
+            <h1 class="h1-Registros">RELATÓRIOS DE REGISTROS ZAPT SAÚDE</h1>
+    </div>
 
-                </div>
-            </div>
-
-
-
-            <div class="father2">
-                <h2>DADOS DO RESPONSÁVEL</h2>
-                <div class="input">
-                    <p class="nomeCompleto">NOME COMPLETO</p>
-                    <p id="insereNomeRESP"></p>
-                </div>
-                <div class="doughter">
-                    <div class="cpf">
-                        <p>CPF</p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="inputF">
-                        <p>RG</p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                </div>
-                <!-- DADOS DE ENDEREÇO -->
-                <div class="">
-                    <div class="inputF">
-                        <p>RUA</p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                    
-                </div>
-                <div class="">
-                    <div class="inputF">
-                        <p>NÚMERO</p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="inputF">
-                        <p>BAIRRO</p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="inputF">
-                        <p>CIDADE</p>
-                        <p id="insereNomeCria"></p>
-                    </div>
-                </div>
-                
-                    <div class="">
-                        <div class="inputF">
-                            <p>Nº TÍTULO ELEITOR</p>
-                            <p id="insereNomeCria"></p>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="inputF">
-                            <p>ZONA</p>
-                            <p id="insereNomeCria"></p>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="inputF">
-                            <p>SEÇÃO</p>
-                            <p id="insereNomeCria"></p>
-                        </div>
-                    </div>
-            </div>
-            <button id="btn-imp" type="submit" >imprimir</button>
-                    <script type="module" src="../js/_DATE_PATIENT.js"></script>
-        </body>
-        </html>
+    <!--        Tabelas de registros-->
+    <div class="listaRelatorio">
+        <div class="reg1">
+            <!-- Listagem dos pacientes cadastrados no sistema-->
+            <ul class="qntPac">
+                <li class="liPac"><p class="nomePacList">dsdsd</p></li>
+            </ul>
+        </div>
+        <!--  Final da lista -->
         
+
+        <!--  Início conteúdo de edição dos registros -->
+        <div class="reg2">  
+                       
+            <div class="editPac">
+                
+            </div>
+
+        </div>
+    </div>
+
+    
+    
+    <!--        Rodapé -->
+    <div class="custom-shape-divider-bottom-1683068753">
+    </div>
+    <footer class="main_footer_container">
+
+        </div><!--Contant-->
+        
+        <div class="main_footer_copy">
+            <p class="m-b-footer">Associação Beneficente das Famílias do Complexo Benedito Bentes 
+                CNPJ: 08.378.385/0001-37
+                Rua João Paulo I, 141 A - Alto da Alegria Bendito Bentes – Maceió/AL
+                E-mail: zapt_saude@hotmail.com Tel:(82) 99979-1903</p>
+            <p class="m-b-footer"> ZAPT SAÚDE - 2023, todos os direitos reservados.</p> 
+            <p class="by"><i class="icon icon-heart-3"></i> Desenvolvido por: <a href="#">getHoss Tecnologia</a></p>
+        </div>
+        <div class="icons">
+            <div class="logoIcons">......</div>
+            <div class="logoIcons">......</div>
+            <div class="logoIcons">......</div>
+        </div>
+    </footer>
+    <!--        Corpo-->
+    <!--        Footer-->
+    <!--    Fim do corpo-->
+    <!--    Inicio do rodapé-->
+    <!--        Copyright-->
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAYuTeXoVD_bPDJmXFsmLg1jZnmCeoApWE",
+          authDomain: "zapt-saude-main.firebaseapp.com",
+          projectId: "zapt-saude-main",
+          storageBucket: "zapt-saude-main.appspot.com",
+          messagingSenderId: "323783024816",
+          appId: "1:323783024816:web:ee878fa77af952b335db75",
+          measurementId: "G-8WJ4W944C5"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        console.log(app)
+
+        async function fetchData(db){
+            const docsCol = collection(db, 'mainCad');
+            const docSnap = await getDocs(docsCol)
+            const docList = docSnap.docs.map(doc=>doc.data())
+            return docList;
+        }
+
+        let main = await fetchData(db);
+        //console.log(main[0]);
+        //console.log(main[1]); 
+        
+      </script>
+
+
+
+    <script src="/assets/js/regPatient.js" type="module"></script>
+</body>
+</html>
