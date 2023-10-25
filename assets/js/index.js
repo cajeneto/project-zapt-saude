@@ -1,13 +1,17 @@
 "use strict";
  import { registerLog } from './_DATE_PATIENT.js'
-
-
-
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
- import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
- //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
  
 
+ // Import the functions you need from the SDKs you need
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+ //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+ import { getFirestore, collection, getDocs} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
+ import { getDatabase, set, get, update, remove, ref, child} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+
+ // Your web app's Firebase configuration
+ // For Firebase JS SDK v7.20.0 and later, measurementId is optional
  const firebaseConfig = {
    apiKey: "AIzaSyAYuTeXoVD_bPDJmXFsmLg1jZnmCeoApWE",
    authDomain: "zapt-saude-main.firebaseapp.com",
@@ -20,87 +24,43 @@
 
  // Initialize Firebase
  const app = initializeApp(firebaseConfig);
- const db = getFirestore(app);
+ //const analytics = getAnalytics(app);
+ export const db = getDatabase(app);
+ console.log(app)
 
-/* db.collection('mainCad').get()
-    .then()
+
  
  
- console.log(app); */
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  const conteudo = document.querySelector('body');
-
-
     function create(){
  // FUNÇÃO DO BOTÃO 'CADASTRAR' INSERE TODAS INFORMAÇÕES NO LOCAL STORAGE E CRIA 'ATALHO' NO CAMPO "REGISTRO CADASTRO".
  const btn = document.querySelector('#btnCadastro').addEventListener('click', () =>{ // AO CLICAR NO BOTÃO 'CADASTRAR' EXECUTA FUNÇÃO
     
-            // PEGA VALORES DOS INPUT's DA CRIANÇA.
-    let inputNameComplete = document.querySelector("#inputNameComplete").value;    
-    let inputCPF = document.querySelector("#inputCPF").value;
-    let inputDN = document.querySelector("#inputDN").value;
-    let inputCartaoSUS = document.querySelector("#inputCartaoSUS").value;
-    let inputRG = document.querySelector("#inputRG").value;
-    let inputContato = document.querySelector("#inputContato").value;
-        if(inputNameComplete == "" || inputCPF == "" || inputDN == "" || inputCartaoSUS == "" || inputContato == ""){
-            alert("Preencha todos os dados da criança!");
-            return false;
-            }
+    // PEGA VALORES DOS INPUT's DA CRIANÇA.
+    const inputNameComplete = document.querySelector("#inputNameComplete").value;   
+    const infoRegistro = document.querySelector("#infoRegistro").value;   
+    const inputCPF = document.querySelector("#inputCPF").value;
+    const inputDN = document.querySelector("#inputDN").value;
+    const inputCartaoSUS = document.querySelector("#inputCartaoSUS").value;
+    const inputRG = document.querySelector("#inputRG").value;
+    const inputContato = document.querySelector("#inputContato").value;
+       if(inputNameComplete == "" || infoRegistro == "" || inputCPF == "" || inputDN == "" || inputCartaoSUS == "" || inputContato == ""){
+           alert("Preencha todos os dados da criança!");
+           return false;
+        }
 
         //CRIA OBJETO PARA ARMAZENAR INFORMAÇÕES DA CRIANÇA E INSERIR NO LOCAL STORAGE
-       const armazena = {
+
+        const armazena = {
         nomeCompletoCrianca : inputNameComplete,
+        id_user             : infoRegistro,
         cpfCrianca          : inputCPF,
         dataNascimento      : inputDN,
         cartaoSus           : inputCartaoSUS,
         rg                  : inputRG,
         contato             : inputContato
         };
-
-        
-        
+    
         // INSERE DADOS NO LOCAL STORAGE
       localStorage.setItem('NOME_CRIANCA',armazena.nomeCompletoCrianca);
       localStorage.setItem('CPF_CRIANCA',armazena.cpfCrianca);
@@ -125,7 +85,7 @@
         if(inputNameResp == "" || inputCPFResp == "" || inputRGResp == "" || inputRua == "" || inputTitulo == "" || inputZona == "" || inputSecao == ""){
             alert("Preencha todos os dados do responsável!");
             return false;
-            }
+        }
 
 
         //CRIA OBJETO PARA ARMAZENAR INFORMAÇÕES DO RESPONSÁVEL E INSERIR NO LOCAL STORAGE
@@ -153,36 +113,68 @@
       localStorage.setItem('ZONA_RESP',armazenaRESP.ZONA_RESP);
       localStorage.setItem('SECAO_RESP',armazenaRESP.SECAO_RESP);
 
-        /* ------------------------------------------------------------------------------ */
-
-        /* function registerLog(){
-        // PEGA INFORMAÇÃO DO BLOCO .conteudoRegistro.
-        let conteudoRegistro = document.querySelector(".conteudoRegistro");
-        // INSERE BLOCO DE HTML DENTRO DO BLOCO .conteudoRegistro.
-        let btn = conteudoRegistro.innerHTML = `${conteudoRegistro.innerHTML} <div class="registroP">
-        <p class="namePaciente"><strong>PACIENTE: ${inputNameComplete}</strong><br>RESPONSÁVEL: ${inputNameResp}</p> 
-        <div class="incon-link">
-            <div class="link-a">    
-                <a id="a-link" href="./formCadastro.html" target="_blank" rel="noopener noreferrer">
-                    <img  src="/assets/img/informacoes.png" alt="img-perfil-paciente" class="incon">
-                </a>
-                <a id="a-link" href="./formCadastro.html" target="_blank" rel="noopener noreferrer">
-                    <img  src="/assets/img/informacoes.png" alt="img-perfil-paciente" class="incon">
-                </a>
-            </div>
-        </div>`;
-     }
-     registerLog(); */
 
      /////////// CHAMA FUNÇÃO DE DATE PATIENT \\\\\\\\\\\\\\\\\\\\\\
-     registerLog()
-    /////////// IFM DA FUÇÃO DE DATE PATIENT \\\\\\\\\\\\\\\\\\\\\\
+
+     registerLog();
+
+    /////////// FIM DA FUÇÃO DE DATE PATIENT \\\\\\\\\\\\\\\\\\\\\\
+
+        
+//////// FUNÇÃO PARA INSERIR DADOS NA COLLECTION PESSOA.
+    function insertData(){
+        set(ref(db, 'pessoa/'+infoRegistro), {
+            crianca: armazena,
+            responsavel: armazenaRESP
+        })
+        .then(()=> {
+            alert('Inserido com sucesso')
+        })
+        .catch((error)=> {
+            alert(error)
+        })
+     };
+     insertData();
+
+     ///// FUNÇÃO PARA BUSCAR DADOS NA COLLECTION PESSOA.
+     /* function getDataPessoa() {
+      const dbref = ref(db);
+      var id_user = '01'
+      get(child(dbref, "pessoa/"+ id_user))
+        .then((snapshot) => {
+            if (snapshot.exists()){
+              console.log("teste" + snapshot.val().crianca);
+            }
+            else {
+              console.log('nao encontrado');
+            }
+          })
+          .catch((error)=>{
+            console.log(error);
+          })
+        }
+        getDataPessoa(); */
+
+    // FUNÇÃO PARA EDITAR DADOS NA COLLECTION PESSOA.
+   /*  function editData(){
+      update(ref(db, 'pessoa/' + infoRegistro),{
+        crianca : armazena ,
+        responsavel : armazenaRESP
+        })
+        .then(()=>{
+          alert('Alterado com Sucesso');
+        })
+        .catch((error)=>{
+          alert(error);
+        })
+    }  */
 
 
         // LIMPAR CAMPOS DO INPUT.
                 setTimeout(() => {
                 // CAMPOS CRIANÇA
         document.querySelector("#inputNameComplete").value="";    
+        document.querySelector("#infoRegistro").value="";    
         document.querySelector("#inputCPF").value="";
         document.querySelector("#inputDN").value="";
         document.querySelector("#inputCartaoSUS").value="";
@@ -208,5 +200,21 @@
 
 create();
  
-        // BOTÃO PARA GERAR DOCUMENTO PDF E DISPONIBIZA PARA IMPRESSÃO
-        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BOTÃO PARA GERAR DOCUMENTO PDF E DISPONIBIZA PARA IMPRESSÃO
+    

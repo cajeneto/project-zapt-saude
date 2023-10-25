@@ -43,17 +43,33 @@
     <!--        Tabelas de registros-->
     <div class="listaRelatorio">
         <div class="reg1">
+            <div class="pacCad">
+            <div class="titleReg1">PACIENTE CADASTRADOS</div>
             <!-- Listagem dos pacientes cadastrados no sistema-->
-            <ul class="qntPac">
-                <li class="liPac"><p class="nomePacList">dsdsd</p></li>
-            </ul>
+            <!-- <div class="qntPac">
+                <div class="nomePacListReg"></div>
+                <div class="cpfCriaReg"></div>
+                <div class="dnCriaReg"></div>
+                <div class="ResponsavelCriaReg"></div>
+                <div class="SUSReg"></div>
+                <div class="TelefoneReg"></div>
+                <div class="buttonEdit">
+                    <button id="btnEditReg">Editar</button>
+                </div>
+                <div class="buttonImprime">
+                    <button id="btnImprimeReg">Imprimir</button>
+                </div>
+
+            </div> -->
+            </div>
         </div>
+
         <!--  Final da lista -->
         
 
         <!--  Início conteúdo de edição dos registros -->
         <div class="reg2">  
-                       
+                       <div class="titleReg2">EDITAR DADOS</div>
             <div class="editPac">
                 
             </div>
@@ -78,11 +94,7 @@
             <p class="m-b-footer"> ZAPT SAÚDE - 2023, todos os direitos reservados.</p> 
             <p class="by"><i class="icon icon-heart-3"></i> Desenvolvido por: <a href="#">getHoss Tecnologia</a></p>
         </div>
-        <div class="icons">
-            <div class="logoIcons">......</div>
-            <div class="logoIcons">......</div>
-            <div class="logoIcons">......</div>
-        </div>
+        
     </footer>
     <!--        Corpo-->
     <!--        Footer-->
@@ -91,47 +103,7 @@
     <!--        Copyright-->
 
 
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyAYuTeXoVD_bPDJmXFsmLg1jZnmCeoApWE",
-          authDomain: "zapt-saude-main.firebaseapp.com",
-          projectId: "zapt-saude-main",
-          storageBucket: "zapt-saude-main.appspot.com",
-          messagingSenderId: "323783024816",
-          appId: "1:323783024816:web:ee878fa77af952b335db75",
-          measurementId: "G-8WJ4W944C5"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-        console.log(app)
-
-        async function fetchData(db){
-            const docsCol = collection(db, 'mainCad');
-            const docSnap = await getDocs(docsCol)
-            const docList = docSnap.docs.map(doc=>doc.data())
-            return docList;
-        }
-
-        let main = await fetchData(db);
-        //console.log(main[0]);
-        //console.log(main[1]); 
-        
-      </script>
-
-
-
+   
     <script src="/assets/js/regPatient.js" type="module"></script>
 </body>
 </html>
