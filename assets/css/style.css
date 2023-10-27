@@ -458,8 +458,8 @@ input:focus {
 /* line 464, ../../../Documents/zapt_saude/assets/scss/style.scss */
 .listaRelatorio .reg1 .qntPac, .listaRelatorio .reg2 .qntPac {
   display: grid;
-  grid-template-columns: 4fr 2fr 2fr;
-  column-gap: 50px;
+  grid-template-columns: 3fr 2fr 2fr;
+  column-gap: 30px;
   row-gap: 10px;
   flex-wrap: wrap;
   width: auto;

@@ -5,6 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebas
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
 import { getFirestore, collection, getDocs} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js"
 import { getDatabase, set, get, update, remove, ref, child} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"
+//import { registerLog } from "./_DATE_PATIENT";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -120,16 +121,19 @@ function criaDivfilho() {
 
 function btnEditarReg(){
    var btnEditReg = document.getElementById('btnEditReg').addEventListener('click', ()=> {
+      //EditDados();
    });
    
 }
 
-function btnImprimeReg(){
-   var btnImprimeReg = document.getElementById('btnImprimeReg').addEventListener('click', ()=> {
-      alert('ola mundo imprime')
+/* function btnImprimeReg(){
+   var btnImprimeReg = document.getElementById('btnImprimeReg').addEventListener('click', (e)=> {
+      e.preventDefault();
+         alert('ola mundo imprime')
+
    });
    
-}
+} */
 
 
 /* function criaElementoReg(){
@@ -184,7 +188,7 @@ function btnImprimeReg(){
    function listarArray() {
       const dbref = ref(db);
       const collectionName = 'pessoa/';
-      const id_user = ''
+      //const id_user = ''
       get(child(dbref, collectionName))
       .then((snapshot) => {
             snapshot.forEach((childSnapshot) => {
@@ -199,74 +203,119 @@ function btnImprimeReg(){
                var dataNascimento = childSnapshot.val().crianca.dataNascimento; 
                var rg = childSnapshot.val().crianca.rg;
 
-               console.log(criancaCol)
-               console.log(infoRegistro)
-               console.log(responsavelCol)
-               console.log(cartaoSus)
-               console.log(contato)
-               console.log(cpfCrianca)
-               console.log(dataNascimento)
-               console.log('--------------------------------')
-
                
-const insereDiv = `
-<div class="qntPac">
-   <div class="nomePacListReg"><strong>NOME DA CRIANÇA: <br></strong>${criancaCol}</div>
-   <div class="idPacReg"><strong>ID Registro: <br></strong>${infoRegistro}</div>
-   <div class="cpfCriaReg"><strong> CPF: <br></strong>${cpfCrianca}</div>
-   <div class="ResponsavelCriaReg"><strong>DATA NASCIMENTO: <br></strong>${dataNascimento}</div>
-   <div class="dnCriaReg"><strong> RESPONSÁVEL:<br></strong>${responsavelCol}</div>
-   <div class="SUSReg"><strong> CARTÃO SUS:<br></strong>${cartaoSus}</div>
-   <div class="TelefoneReg"><strong> CONTATO: <br></strong>${contato}</div>
-<div class="buttonEdit">
-   <button id="btnEditReg">Editar</button>
-</div>
-<div class="buttonImprime">
-   <button id="btnImprimeReg">Imprimir</button>
-</div>
-</div>
-`
-function criaDivfilho() {
-   const reg1 = document.querySelector('.pacCad')
-   reg1.innerHTML+=insereDiv
-   btnEditarReg();
-   btnImprimeReg();
-   //getDataPessoa();
-   //criaElementoReg();
-}
-criaDivfilho();
+               const insereDiv = `
+                  <div class="qntPac" id="qtdPac-${infoRegistro}" >
+                     <div class="nomePacListReg"><strong>NOME DA CRIANÇA: <br></strong>${criancaCol}</div>
+                     <div class="idPacReg"><strong>ID Registro: <br></strong>${infoRegistro}</div>
+                     <div class="cpfCriaReg"><strong> CPF: <br></strong>${cpfCrianca}</div>
+                     <div class="dnCriaReg"><strong> RESPONSÁVEL:<br></strong>${responsavelCol}</div>
+                     <div class="ResponsavelCriaReg"><strong>DATA NASCIMENTO: <br></strong>${dataNascimento}</div>
+                     <div class="SUSReg"><strong> CARTÃO SUS:<br></strong>${cartaoSus}</div>
+                     <div class="TelefoneReg"><strong> CONTATO: <br></strong>${contato}</div>
+                     <div class="buttonEdit">
+                        <button id="btnEditReg" class"${infoRegistro}" onclick="btNew();">Editar</button>
+                     </div>
+                     `
+                  /* <div class="buttonImprime">
+                     <button id="btnImprimeReg">Imprimir</button>
+                  </div>
+                  </div> */
+                  
 
-               //btnImprimeReg();
-               //var nomePacListReg = document.querySelector('.nomePacListReg').innerHTML=criancaCol;
-               //var idPacReg = document.querySelector('.idPacReg').innerHTML="<strong>ID Registro: <br></strong>"+infoRegistro;
-               //var cpfCriaReg = document.querySelector('.cpfCriaReg').innerHTML="<strong> CPF: <br></strong>"+cpfCrianca;
-               //var dnCriaReg = document.querySelector('.dnCriaReg').innerHTML=" <strong>DATA NASCIMENTO: <br></strong>"+dataNascimento;
-               //dados responsável
-               //var ResponsavelCriaReg = document.querySelector('.ResponsavelCriaReg').innerHTML="<strong> RESPONSÁVEL:<br></strong> "+responsavelCol;
-               //var SUSReg = document.querySelector('.SUSReg').innerHTML="<strong> CARTÃO SUS:<br></strong> "+cartaoSus;
-               //var TelefoneReg = document.querySelector('.TelefoneReg').innerHTML="<strong> CONTATO: <br></strong> "+contato;
-               //console.log(childKey)
-               //console.log(childData)
-               
+                  
+
+                  function criaDivfilho() {
+                     const reg1 = document.querySelector('.pacCad')
+                     reg1.innerHTML+=insereDiv
+                     //btnEditarReg();
+
+                     /* let btnEdit = document.querySelector('#btnEditReg');
+                     btnEdit.addEventListener('click', (e) => {
+                        if(e.target){
+                           console.log("clicou no botao editar");
+                        }
+                     }) */
+
+                     /* function btNew(id){
+                        const nwBtn = document.createElement('button').setAttribute('class','btnEditarReg');
+                        //nwBtn.setAttribute('class','btnEditarReg');
+                        nwBtn.textContent='editar';
+                        nwBtn.classList.add(`${infoRegistro}`);
+
+                        nwBtn.addEventListener('click', () =>{
+                           alert(`clicou em ${id}`);
+                        })
+                     }
+                     btNew(); */
+
+                     /* function btNew(){
+                        
+                        
+                        const nwBtn = document.querySelector('#btnEditarReg')
+                        console.log(nwBtn)
+                        nwBtn.addEventListener('click', () =>{
+                           console.log("Clicou em "+infoRegistro)
+                           
+                        })
+
+                        
+                  }
+                     //btNew(); */
 
 
 
-               //console.log(`${childKey}: ${JSON.stringify(childData)}`);
-            
+
+                     //btnImprimeReg();
+                     //getDataPessoa();
+                     //criaElementoReg();
+
+                     /* function btNew(){
+                        //const insereDiv2 = document.querySelector('.TelefoneReg')
+                        const nwBtn = document.createElement('button')
+                        nwBtn.setAttribute('class','btnEditarReg');
+                        //nwBtn.setAttribute('data-id',`${infoRegistro}`);
+                        //nwBtn.setAttribute('class','btnEditarReg');
+                        nwBtn.textContent='editar';
+                        nwBtn.classList.add(`${infoRegistro}`);
    
-       })
-      })
-       .catch((error) => {
-         console.error('Erro ao listar o array:', error);
-       });
+                        nwBtn.addEventListener('click', () =>{
+                           alert(`clicou em ${infoRegistro}`);
+                        })
+
+                        const containerInsere = document.querySelector('.qntPac');
+                        containerInsere.appendChild(nwBtn)
+
+                        
+                  }
+                     btNew(); */
+
+
+                  }
+                     criaDivfilho();
+                     
+                     
+
+               })
+            })
+         .catch((error) => {
+               console.error('Erro ao listar o array:', error);
+         });
    }
 
-   
+   listarArray();
+
+   function btNew(){                         
+      const nwBtn = document.getElementsByClassName('${infoRegistro}')
+         console.log(`Clicou em `)
+         
+      }
+      //btNew()
+
+
+
+   //btNew();
    // Chame a função para listar o array
-   //listarArray();
-
-
-
 
    //function obterRegistros5Min() {
       // Defina a lógica para obter registros aqui
@@ -281,8 +330,7 @@ criaDivfilho();
     //setInterval(obterRegistros5Min, intervalo);
     
     // Chame a função uma vez imediatamente para iniciar o processo
-
-
+   
 
 
 
@@ -295,9 +343,31 @@ criaDivfilho();
 window.onload = () => {
    //getDataPessoa();
    //criaDivfilho();
-   listarArray()
+   //listarArray()
    //obterRegistros5Min();
+   //EditDados()
+   
 }
+
+
+function EditDados(){
+  // const collectionName = 'pessoa/';
+   //const trocaNome = 'teste troca de nome 3'
+   
+      update(ref(db, collectionName +'12/crianca'), {
+         nomeCompletoCrianca: trocaNome,
+         
+      })
+      .then(()=>{
+         alert("Atualizado com sucesso!");
+         window.location.reload();
+         }).catch((error)=>{
+            console.error(`Error: ${error}`);
+            });
+            
+   }
+  //EditDados()
+
 
 
 
