@@ -214,140 +214,102 @@ function btnEditarReg(){
                      <div class="SUSReg"><strong> CARTÃO SUS:<br></strong>${cartaoSus}</div>
                      <div class="TelefoneReg"><strong> CONTATO: <br></strong>${contato}</div>
                      <div class="buttonEdit">
-                        <button id="btnEditReg" class"${infoRegistro}" onclick="btNew();">Editar</button>
+                     <button id="btnEditReg" onclick="console.log('esse e o botao de editar do id '+${infoRegistro})">Editar</button>
+                     </div>
+                     <div class="buttonImprime">
+                        <button id="btnImprimeReg" onclick="alert('esse e o botao de imprimir do id '+${infoRegistro})">Imprimir</button>
+                     </div>
                      </div>
                      `
-                  /* <div class="buttonImprime">
-                     <button id="btnImprimeReg">Imprimir</button>
-                  </div>
-                  </div> */
-                  
-
-                  
 
                   function criaDivfilho() {
                      const reg1 = document.querySelector('.pacCad')
                      reg1.innerHTML+=insereDiv
-                     //btnEditarReg();
-
-                     /* let btnEdit = document.querySelector('#btnEditReg');
-                     btnEdit.addEventListener('click', (e) => {
-                        if(e.target){
-                           console.log("clicou no botao editar");
-                        }
-                     }) */
-
-                     /* function btNew(id){
-                        const nwBtn = document.createElement('button').setAttribute('class','btnEditarReg');
-                        //nwBtn.setAttribute('class','btnEditarReg');
-                        nwBtn.textContent='editar';
-                        nwBtn.classList.add(`${infoRegistro}`);
-
-                        nwBtn.addEventListener('click', () =>{
-                           alert(`clicou em ${id}`);
-                        })
-                     }
-                     btNew(); */
-
-                     /* function btNew(){
-                        
-                        
-                        const nwBtn = document.querySelector('#btnEditarReg')
-                        console.log(nwBtn)
-                        nwBtn.addEventListener('click', () =>{
-                           console.log("Clicou em "+infoRegistro)
-                           
-                        })
-
-                        
                   }
-                     //btNew(); */
 
-
-
-
-                     //btnImprimeReg();
-                     //getDataPessoa();
-                     //criaElementoReg();
-
-                     /* function btNew(){
-                        //const insereDiv2 = document.querySelector('.TelefoneReg')
-                        const nwBtn = document.createElement('button')
-                        nwBtn.setAttribute('class','btnEditarReg');
-                        //nwBtn.setAttribute('data-id',`${infoRegistro}`);
-                        //nwBtn.setAttribute('class','btnEditarReg');
-                        nwBtn.textContent='editar';
-                        nwBtn.classList.add(`${infoRegistro}`);
    
-                        nwBtn.addEventListener('click', () =>{
-                           alert(`clicou em ${infoRegistro}`);
-                        })
-
-                        const containerInsere = document.querySelector('.qntPac');
-                        containerInsere.appendChild(nwBtn)
-
-                        
-                  }
-                     btNew(); */
-
-
-                  }
-                     criaDivfilho();
-                     
-                     
-
+                  criaDivfilho();
+                  
                })
             })
-         .catch((error) => {
+            .catch((error) => {
                console.error('Erro ao listar o array:', error);
-         });
+            });
    }
 
    listarArray();
-
-   function btNew(){                         
-      const nwBtn = document.getElementsByClassName('${infoRegistro}')
-         console.log(`Clicou em `)
-         
-      }
-      //btNew()
-
-
-
+   
+   
+   
+   
+   
    //btNew();
    // Chame a função para listar o array
-
+   
    //function obterRegistros5Min() {
       // Defina a lógica para obter registros aqui
       //console.log('Obtendo registros a cada 1 minuto...');
       //listarArray()
-    //}
-    
-    // Defina um intervalo de 5 minutos (5 * 60 * 1000 milissegundos)
-    //const intervalo = 1 * 60 * 1000;
-    
-    // Execute a função a cada 5 minutos
-    //setInterval(obterRegistros5Min, intervalo);
-    
-    // Chame a função uma vez imediatamente para iniciar o processo
-   
+      //}
+      
+      // Defina um intervalo de 5 minutos (5 * 60 * 1000 milissegundos)
+      //const intervalo = 1 * 60 * 1000;
+      
+      // Execute a função a cada 5 minutos
+      //setInterval(obterRegistros5Min, intervalo);
+      
+      // Chame a função uma vez imediatamente para iniciar o processo
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      window.onload = () => {
+         //getDataPessoa();
+         //criaDivfilho();
+         //listarArray()
+         //obterRegistros5Min();
+         //EditDados()
+         
+      }
+      
+      
+         
+      const qntBotoes = document.querySelectorAll('div.pacCad')[0].childNodes.length-2
+                     console.log(qntBotoes)
+               
+                     function criarBotao(infoRegistro){
+                        const novoBotao = document.createElement('button');
+                        novoBotao.setAttribute('id','btnEditarReg')
+                        novoBotao.textContent = `Botão ${infoRegistro}`;
+                        //novoBotao.innerHTML='olaaaaa'
+                        //novoBotao.id = `Botão-${infoRegistro}`;
+               
+                        /* novoBotao.addEventListener('click', () => {
+                           console.log(`botao ${infoRegistro} clicado`)
+                        }); */
+               
+                        const containerTeste = document.querySelector('.qntPac');
+                        //containerTeste.innerHTML+=`<button class="TESTE"><strong> TESTE: <br></strong>${contato}</button>`
+               
+               
+                     }
+                     
+                     // crie três botões com IDs único
+                     /* for(let i=0;i<qntBotoes;i++){
+                        criarBotao()
+                        } */
+               
+                        criarBotao();
+
+const t = document.querySelector('.TelefoneReg')
+console.log(t)
 
 
-
-
-
-
-
-
-
-window.onload = () => {
-   //getDataPessoa();
-   //criaDivfilho();
-   //listarArray()
-   //obterRegistros5Min();
-   //EditDados()
-   
-}
 
 
 function EditDados(){
