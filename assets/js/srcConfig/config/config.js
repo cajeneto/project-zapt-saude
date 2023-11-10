@@ -20,7 +20,6 @@ import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10
 
 
 
-
 /* 
  const special = doc(db, 'testeCol');
  function docEmBrancoTeste(){

@@ -184,7 +184,7 @@ function btnEditarReg(){
 
 
    
-   // Função para listar o array
+   // Função para listar o array que está dentro da collection
    function listarArray() {
       const dbref = ref(db);
       const collectionName = 'pessoa/';
@@ -202,33 +202,170 @@ function btnEditarReg(){
                var cpfCrianca = childSnapshot.val().crianca.cpfCrianca; 
                var dataNascimento = childSnapshot.val().crianca.dataNascimento; 
                var rg = childSnapshot.val().crianca.rg;
+               var cpf_resp = childSnapshot.val().responsavel.cpf_RESP;
+               var rua_resp = childSnapshot.val().responsavel.RUA_RESP;
+               var numero_resp = childSnapshot.val().responsavel.NUM_RESP;
+               var bairro_resp = childSnapshot.val().responsavel.BAIRRO_RESP;
+               var cidade_resp = childSnapshot.val().responsavel.CIDADE_RESP;
+
 
                
-               const insereDiv = `
-                  <div class="qntPac" id="qtdPac-${infoRegistro}" >
-                     <div class="nomePacListReg"><strong>NOME DA CRIANÇA: <br></strong>${criancaCol}</div>
-                     <div class="idPacReg"><strong>ID Registro: <br></strong>${infoRegistro}</div>
-                     <div class="cpfCriaReg"><strong> CPF: <br></strong>${cpfCrianca}</div>
-                     <div class="dnCriaReg"><strong> RESPONSÁVEL:<br></strong>${responsavelCol}</div>
-                     <div class="ResponsavelCriaReg"><strong>DATA NASCIMENTO: <br></strong>${dataNascimento}</div>
-                     <div class="SUSReg"><strong> CARTÃO SUS:<br></strong>${cartaoSus}</div>
-                     <div class="TelefoneReg"><strong> CONTATO: <br></strong>${contato}</div>
-                     <div class="buttonEdit">
-                     <button id="btnEditReg" onclick="console.log('esse e o botao de editar do id '+${infoRegistro})">Editar</button>
-                     </div>
-                     <div class="buttonImprime">
-                        <button id="btnImprimeReg" onclick="alert('esse e o botao de imprimir do id '+${infoRegistro})">Imprimir</button>
-                     </div>
-                     </div>
-                     `
+               
+               // Função para criar e retornar a div com as informações
+function criarDiv(infoRegistro, criancaCol, cpfCrianca, responsavelCol, dataNascimento, cartaoSus, contato) {
+   const div = document.createElement('div');
+   div.classList.add('qntPac');
+   div.id = `qtdPac-${infoRegistro}`;
 
-                  function criaDivfilho() {
-                     const reg1 = document.querySelector('.pacCad')
-                     reg1.innerHTML+=insereDiv
-                  }
+   div.innerHTML = `
+       <div class="nomePacListReg"><strong>NOME DA CRIANÇA: <br></strong>${criancaCol}</div>
+       <div class="idPacReg"><strong>ID Registro: <br></strong>${infoRegistro}</div>
+       <div class="cpfCriaReg"><strong> CPF: <br></strong>${cpfCrianca}</div>
+       <div class="ResponsavelCriaReg"><strong> RESPONSÁVEL:<br></strong>${responsavelCol}</div>
+       <div class="dnCriaReg"><strong>DATA NASCIMENTO: <br></strong>${dataNascimento}</div>
+       <div class="SUSReg"><strong> CARTÃO SUS:<br></strong>${cartaoSus}</div>
+       <div class="TelefoneReg"><strong> CONTATO: <br></strong>${contato}</div>
+       <div class="buttonEdit">
+           <button class="btnEditReg">Editar
+           <span class="material-symbols-outlined">edit
+           </span>
+           </button>
+       </div>
+       <div class="buttonImprime">
+       <button class="btnImprimeReg">Imprimir
+       <span class="material-symbols-outlined">print</span>
+       </button>
+       </div>
+   `;
+
+   const btnEdit = div.querySelector('.btnEditReg');
+    const btnImprime = div.querySelector('.btnImprimeReg');
+
+   // Adicionar listeners para os botões dentro da div criada
+   div.querySelector('.btnEditReg').addEventListener('click', () => {
+       //console.log('Esse é o botão de editar do ID ' + infoRegistro);
+       // Aqui você pode adicionar a lógica para editar com o ID infoRegistro
+       acaoBotaoEdit()
+   });
+
+   div.querySelector('.btnImprimeReg').addEventListener('click', () => {
+      // console.log('Esse é o botão de imprimir o ID ' + infoRegistro);
+       // Aqui você pode adicionar a lógica para imprimir com o ID infoRegistro
+       acaoBotaoImprime(infoRegistro);
+   });
+
+   return div;
+}
+
+function acaoBotaoEdit(){
+   const modal = document.querySelector('dialog')
+   
+   if(confirm(`Você deseja editar o dados do paciente: \n${criancaCol}\nID Registro: ${infoRegistro}`)){
+      modal.showModal()
+      // PEGA DADOS DO PACIENTE PARA QUE POSSAR SER EDITADO;
+      const edit_inputNameComplete = document.querySelector('#inputNameCompleteModal').value = criancaCol
+      const edit_inputCPF = document.querySelector('#inputCPFModal').value = cpfCrianca
+      const edit_inputDN = document.querySelector('#inputDNModal').value = dataNascimento
+      const edit_inputCartaoSUS = document.querySelector('#inputCartaoSUSModal').value = cartaoSus
+      const edit_inputRG = document.querySelector('#inputRGModal').value = rg
+      const edit_inputContato = document.querySelector('#inputContatoModal').value = contato
+      const edit_inputIDRegistroModal = document.querySelector('#inputIDRegistroModal').value = infoRegistro
+      
+
+      // PEGA DADOS DO RESPONSÁVEL PARA QUE POSSAR SER EDITADO;/////////////////////////////////////
+
+      const inputNomeResponsavelModal = document.querySelector('#inputNomeResponsavelModal').value = responsavelCol
+      const inputCPFResponsavelModal = document.querySelector('#inputCPFResponsavelModal').value = cpf_resp
+      const inputRuaResponsavelModal = document.querySelector('#inputRuaResponsavelModal').value = rua_resp
+      const inputBairroModal = document.querySelector('#inputBairroModal').value = bairro_resp
+      const inputCidadeModal = document.querySelector('#inputCidadeModal').value = cidade_resp
+
+      /// CONFIGURAÇÃO DOS BOTÕES DO MODAL
+
+      const btnCadastroModal = document.querySelector('#btnCadastroModal').addEventListener('click', ()=> {
+         alert("Dados alterado com sucesso!")
+         modal.close();
+         location.reload();
+      })
+
+      const btnCancel = document.querySelector('#btnCancel').addEventListener('click', () => {
+         modal.close();
+      })
+   }
 
    
-                  criaDivfilho();
+
+}
+
+
+
+function acaoBotaoImprime(id) {
+   if (id === infoRegistro) {
+       //console.log('Ação de impressão para o ID '+infoRegistro);
+      const conteudo = `
+      <h2 style='text-align:center'>Dados da Criança</h2>
+      <div style="background-image: url('/assets/img/zapt-saude-logo2.jpeg'); width: 500px; height: 200px;"></div>
+      <hr/>
+      <h4 style='text-align:start'>Registro Nº: ${infoRegistro}</h4>
+      <hr/>
+      <h4 style='text-align:start'>Nome da Criança: ${criancaCol}</h4>
+      <h4 style='text-align:start'>CPF: ${cpfCrianca}</h4>
+      <h4 style='text-align:start'>Data de nascimento: ${dataNascimento}</h4>
+      <h4 style='text-align:start'>Cartão Sus: ${cartaoSus}</h4>
+      <h4 style='text-align:start'>Contato: ${contato}</h4>
+      <h4 style='text-align:start'>Responsável: ${responsavelCol}</h4>
+      `;
+
+      
+      
+
+
+      let estilo = "<style>";
+      estilo += "body{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: black}";
+      estilo += "</style>";
+      const win = window.open('','', 'height=700,width=700');
+      win.document.write('<html><head>');
+      win.document.write('<title>ZAPT SAÚDE</title>');
+      win.document.write(estilo);
+      win.document.write('</head>');
+      win.document.write('<body>');
+      win.document.write(conteudo);
+      win.document.write('</body></html>');
+      win.print()
+      win.close()
+      
+
+
+
+       // Coloque aqui a lógica para imprimir o item com o ID 123
+   } else {
+       console.log('Ação de impressão para outro ID');
+       // Outra ação ou lógica para IDs diferentes
+   }
+}
+
+function criaDivFilho() {
+   // Suponhamos que você tenha variáveis com os valores necessários
+   const infoRegistro1 = 'infoRegistro';
+   const criancaCol1 = criancaCol;
+   const cpfCrianca1 = '123.456.789-00';
+   const responsavelCol1 = 'Maria';
+   const dataNascimento1 = '01/01/2010';
+   const cartaoSus1 = '1234567890';
+   const contato1 = '987654321';
+
+   const reg1 = document.querySelector('.pacCad');
+   reg1.appendChild(criarDiv(infoRegistro, criancaCol, cpfCrianca, responsavelCol, dataNascimento, cartaoSus, contato));
+}
+
+
+
+criaDivFilho();
+
+                  
+
+                  
+                 
                   
                })
             })
@@ -238,7 +375,7 @@ function btnEditarReg(){
    }
 
    listarArray();
-   
+
    
    
    
@@ -268,53 +405,25 @@ function btnEditarReg(){
       
       
       
-      window.onload = () => {
+      /* window.onload = () => {
          //getDataPessoa();
          //criaDivfilho();
          //listarArray()
          //obterRegistros5Min();
          //EditDados()
          
-      }
+      } */
       
       
          
-      const qntBotoes = document.querySelectorAll('div.pacCad')[0].childNodes.length-2
-                     console.log(qntBotoes)
-               
-                     function criarBotao(infoRegistro){
-                        const novoBotao = document.createElement('button');
-                        novoBotao.setAttribute('id','btnEditarReg')
-                        novoBotao.textContent = `Botão ${infoRegistro}`;
-                        //novoBotao.innerHTML='olaaaaa'
-                        //novoBotao.id = `Botão-${infoRegistro}`;
-               
-                        /* novoBotao.addEventListener('click', () => {
-                           console.log(`botao ${infoRegistro} clicado`)
-                        }); */
-               
-                        const containerTeste = document.querySelector('.qntPac');
-                        //containerTeste.innerHTML+=`<button class="TESTE"><strong> TESTE: <br></strong>${contato}</button>`
-               
-               
-                     }
-                     
-                     // crie três botões com IDs único
-                     /* for(let i=0;i<qntBotoes;i++){
-                        criarBotao()
-                        } */
-               
-                        criarBotao();
-
-const t = document.querySelector('.TelefoneReg')
-console.log(t)
+      
 
 
-
-
+// função para editar dados
 function EditDados(){
-  // const collectionName = 'pessoa/';
-   //const trocaNome = 'teste troca de nome 3'
+
+   const collectionName = 'pessoa/';
+   const trocaNome = 'teste troca de nome 11'
    
       update(ref(db, collectionName +'12/crianca'), {
          nomeCompletoCrianca: trocaNome,
@@ -322,7 +431,7 @@ function EditDados(){
       })
       .then(()=>{
          alert("Atualizado com sucesso!");
-         window.location.reload();
+         //window.location.reload();
          }).catch((error)=>{
             console.error(`Error: ${error}`);
             });
@@ -330,13 +439,17 @@ function EditDados(){
    }
   //EditDados()
 
+  
 
 
 
 
+ 
 
 
 
+
+// getHoss
 
 
 
