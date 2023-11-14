@@ -655,8 +655,8 @@ input:focus {
                 box-shadow: $boxShadow;
                 border: none;
                 border-radius: 10px;
-                width: 7rem;
-                font-size: 20px;
+                width: 8rem;
+                font-size: 19px;
                 transition: 100ms;
                 
                 
@@ -713,7 +713,7 @@ dialog{
     top: 10%;
     //height: auto;
     flex-wrap: wrap;
-    background-color: $roxoBackgroundLateral;
+    background-color: rgba(172, 161, 245, 0.918);
     padding: 1%;
     //align-items: start;
     //justify-content: start;

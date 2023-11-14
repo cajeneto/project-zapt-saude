@@ -29,160 +29,6 @@ export const db = getDatabase(app);
 
 
 
-
-
-/* export function getDataPessoa() {
-   const dbref = ref(db);
-   var id_user = '02'
-   var btnEditReg = document.getElementById('btnEditReg').addEventListener('click', ()=> {
-      get(child(dbref, 'pessoa/'+ id_user))
-      .then((snapshot)=>{
-          const criancaCol = snapshot.val().crianca.nomeCompletoCrianca;
-          
-          console.log(criancaCol)
-          const responsavelCol = snapshot.val().responsavel.nomeCompleto_RESP;
-          console.log(responsavelCol)
-         })
-      .catch((error)=> {
-         console.log(error);
-         })
-   });
-   
-}
-   getDataPessoa(); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// função para puxar dados do localStorage e inserir na guia de Relatórios.
-
-
-//const reg1 = document.querySelector('.reg1')
-/* const insereDiv = `
-<div class="qntPac">
-   <div class="nomePacListReg"><strong>NOME DA CRIANÇA: <br></strong></div>
-   <div class="idPacReg"></div>
-   <div class="cpfCriaReg"></div>
-   <div class="ResponsavelCriaReg"></div>
-   <div class="dnCriaReg"></div>
-   <div class="SUSReg"></div>
-   <div class="TelefoneReg"></div>
-<div class="buttonEdit">
-   <button id="btnEditReg">Editar</button>
-</div>
-<div class="buttonImprime">
-   <button id="btnImprimeReg">Imprimir</button>
-</div>
-</div>
-`
-
-function criaDivfilho() {
-   const reg1 = document.querySelector('.pacCad')
-   reg1.innerHTML+=insereDiv
-   btnEditarReg();
-   btnImprimeReg();
-   //getDataPessoa();
-   //criaElementoReg();
-} */
-//criaDivfilho();
-
-/* export function insereListReg(){
-   var nomePacListReg = document.querySelector('.nomePacListReg').innerHTML+="<strong>NOME DA CRIANÇA: <br></strong>"+localStorage.getItem('NOME_CRIANCA');
-   var cpfCriaReg = document.querySelector('.cpfCriaReg').innerHTML+="<strong> CPF: <br></strong>"+localStorage.getItem('CPF_CRIANCA');
-   var dnCriaReg = document.querySelector('.dnCriaReg').innerHTML+=" <strong>DATA NASCIMENTO: <br></strong>"+localStorage.getItem('DN_CRIANCA');
-   //dados responsável
-   var ResponsavelCriaReg = document.querySelector('.ResponsavelCriaReg').innerHTML+="<strong> RESPONSÁVEL:<br></strong> "+localStorage.getItem('NOME_RESP');
-   var SUSReg = document.querySelector('.SUSReg').innerHTML+="<strong> CARTÃO SUS:<br></strong> "+localStorage.getItem('CARTAOSUS_CRIANCA');
-   var TelefoneReg = document.querySelector('.TelefoneReg').innerHTML+="<strong> CONTATO: <br></strong> "+localStorage.getItem('CONTATO_CRIANCA');
-   
-} */
-//insereListReg();
-
-
-function btnEditarReg(){
-   var btnEditReg = document.getElementById('btnEditReg').addEventListener('click', ()=> {
-      //EditDados();
-   });
-   
-}
-
-/* function btnImprimeReg(){
-   var btnImprimeReg = document.getElementById('btnImprimeReg').addEventListener('click', (e)=> {
-      e.preventDefault();
-         alert('ola mundo imprime')
-
-   });
-   
-} */
-
-
-/* function criaElementoReg(){
-   let insereDivFilho = document.querySelector('.pacCad')//pega a div pacCad para inserir elemento dentro dela.
-   let divFilho = document.createElement("div")// cria elemento div //.setAttribute('class', 'qntPac');
-   divFilho.setAttribute('class', 'qntPac')//adiciona class com valor qntPac na div que foi criada
-   insereDivFilho.appendChild(divFilho)
-   
-} */
-
-
-/* function getDataPessoa() {
-   const dbref = ref(db);
-   //console.log(get(child(dbref, 'pessoa/')))
-   var id_user = '234'            
-   //var btnEditReg = document.getElementById('btnEditReg').addEventListener('click', ()=> {
-      get(child(dbref, 'pessoa/'+ id_user))
-      .then((snapshot)=>{
-         const criancaCol = snapshot.val().crianca.nomeCompletoCrianca; 
-         const responsavelCol = snapshot.val().responsavel.nomeCompleto_RESP;
-         const cartaoSus = snapshot.val().crianca.cartaoSus; 
-         const contato = snapshot.val().crianca.contato; 
-         const cpfCrianca = snapshot.val().crianca.cpfCrianca; 
-         const dataNascimento = snapshot.val().crianca.dataNascimento; 
-         const rg = snapshot.val().crianca.rg; 
-
-   
-
-         var nomePacListReg = document.querySelector('.nomePacListReg').innerHTML+="<strong>NOME DA CRIANÇA: <br></strong>"+criancaCol;
-         var idPacReg = document.querySelector('.idPacReg').innerHTML+="<strong>ID Registro: <br></strong>"+id_user;
-         var cpfCriaReg = document.querySelector('.cpfCriaReg').innerHTML+="<strong> CPF: <br></strong>"+cpfCrianca;
-         var dnCriaReg = document.querySelector('.dnCriaReg').innerHTML+=" <strong>DATA NASCIMENTO: <br></strong>"+dataNascimento;
-         //dados responsável
-         var ResponsavelCriaReg = document.querySelector('.ResponsavelCriaReg').innerHTML+="<strong> RESPONSÁVEL:<br></strong> "+responsavelCol;
-         var SUSReg = document.querySelector('.SUSReg').innerHTML+="<strong> CARTÃO SUS:<br></strong> "+cartaoSus;
-         var TelefoneReg = document.querySelector('.TelefoneReg').innerHTML+="<strong> CONTATO: <br></strong> "+contato;
-
-         })
-      .catch((error)=> {
-         console.log(error);
-         })
- 
-   
-} */
-   //getDataPessoa();
-
-
-
-
    
    // Função para listar o array que está dentro da collection
    function listarArray() {
@@ -207,6 +53,10 @@ function btnEditarReg(){
                var numero_resp = childSnapshot.val().responsavel.NUM_RESP;
                var bairro_resp = childSnapshot.val().responsavel.BAIRRO_RESP;
                var cidade_resp = childSnapshot.val().responsavel.CIDADE_RESP;
+               var rg_resp = childSnapshot.val().responsavel.RG_RESP;
+               var titulo_resp = childSnapshot.val().responsavel.TITULO_RESP;
+               var zona_resp = childSnapshot.val().responsavel.ZONA_RESP;
+               var secao_resp = childSnapshot.val().responsavel.SECAO_RESP;
 
 
                
@@ -219,8 +69,8 @@ function criarDiv(infoRegistro, criancaCol, cpfCrianca, responsavelCol, dataNasc
 
    div.innerHTML = `
        <div class="nomePacListReg"><strong>NOME DA CRIANÇA: <br></strong>${criancaCol}</div>
-       <div class="idPacReg"><strong>ID Registro: <br></strong>${infoRegistro}</div>
        <div class="cpfCriaReg"><strong> CPF: <br></strong>${cpfCrianca}</div>
+       <div class="idPacReg"><strong>ID REGISTRO: <br></strong>${infoRegistro}</div>
        <div class="ResponsavelCriaReg"><strong> RESPONSÁVEL:<br></strong>${responsavelCol}</div>
        <div class="dnCriaReg"><strong>DATA NASCIMENTO: <br></strong>${dataNascimento}</div>
        <div class="SUSReg"><strong> CARTÃO SUS:<br></strong>${cartaoSus}</div>
@@ -302,40 +152,164 @@ function acaoBotaoEdit(){
 function acaoBotaoImprime(id) {
    if (id === infoRegistro) {
        //console.log('Ação de impressão para o ID '+infoRegistro);
+       
       const conteudo = `
-      <h2 style='text-align:center'>Dados da Criança</h2>
-      <div style="background-image: url('/assets/img/zapt-saude-logo2.jpeg'); width: 500px; height: 200px;"></div>
-      <hr/>
-      <h4 style='text-align:start'>Registro Nº: ${infoRegistro}</h4>
-      <hr/>
-      <h4 style='text-align:start'>Nome da Criança: ${criancaCol}</h4>
-      <h4 style='text-align:start'>CPF: ${cpfCrianca}</h4>
-      <h4 style='text-align:start'>Data de nascimento: ${dataNascimento}</h4>
-      <h4 style='text-align:start'>Cartão Sus: ${cartaoSus}</h4>
-      <h4 style='text-align:start'>Contato: ${contato}</h4>
-      <h4 style='text-align:start'>Responsável: ${responsavelCol}</h4>
+      <div class="imgLogo1">
+         <img class="imgLogo" src="/assets/img/zapt-saude-logo.jpeg">
+      </div>
+      <div class="headerZapt">
+         <h4 style='text-align:start'>HORÁRIO DE CHEGADA: _____________</h4>
+         <h4 style='text-align:end'>HORÁRIO DE SAÍDA: _____________</h4>
+         <h4 style='text-align:start'>ASSISTENTE SOCIAL: _____________</h4>
+         <h4 style='text-align:end'>PSICÓLOGA(O): _____________</h4>
+      </div>
+      <div class="pacienteTitulo">
+            <p class="nomePacientePDF">DADOS DO PACIENTE</p>
+      </div>
+      <div class="dadosPaciente">
+            <h4 style='text-align:start'>NOME: ${criancaCol}</h4>
+            <h4 style='text-align:start' class="cpfCrianca">CPF: ${cpfCrianca}</h4>
+            <h4 style='text-align:start' class="dataNascimentoCrianca">DATA NASCIMENTO: ${dataNascimento}</h4>
+            <h4 style='text-align:start' class="cartaoSUSCrianca">CARTÃO SUS: ${cartaoSus}</h4>
+            <h4 style='text-align:start' class="RGCrianca">RG: ${rg}</h4>
+      </div>
+      <div class="pacienteTitulo">
+            <p class="nomePacientePDF">DADOS DO RESPONSÁVEL</p>
+      </div>
+      <div class="dadosResponsavel">
+            <h4 style='text-align:start' class="nomeResponsavel">NOME RESPONSÁVEL: ${responsavelCol}</h4>
+            <h4 style='text-align:start' class="CPFResponsavel"> CPF: ${cpf_resp}</h4>
+            <h4 style='text-align:start' class="RGResponsavel">RG RESPONSÁVEL: ${rg_resp}</h4>
+            <h4 style='text-align:start' class="ContatoResponsavel">CONTATO: ${contato}</h4>
+            <h4 style='text-align:start' class="EnderecoResponsavel">ENDEREÇO: ${rua_resp}, ${numero_resp}, ${bairro_resp} - ${cidade_resp}.</h4>
+            <h4 style='text-align:start' class="tituloResponsavel">NÚMERO TÍTULO DE ELEITOR: ${titulo_resp} ZONA: ${zona_resp} SEÇÃO: ${secao_resp}</h4>
+      </div>
       `;
+      const tabela = `
+      <div class="prontuario">
+         <h3>PRONTUÁRIO</h3>
+      </div>
+      <table>
+      <thead>
+        <tr>
+          <th class="data">
+            <h3>DATA</h3>
+          </th>
+          <th class="especialidade">
+            <h3>ESPECIALIDADE</h3>
+          </th>
+          <th class="tratativa">
+            <h3>TRATATIVA</h3>
+          </th>
+          <th class="aa">
+            <h3>A.</h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        </tr>
+      </tbody>`;
 
-      
-      
 
 
       let estilo = "<style>";
-      estilo += "body{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: black}";
+      estilo += "body{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;}";
+      estilo += ".imgLogo1 {display: flex; align-itens: center; justify-content: center;}"; //alinha a img no centro da página
+      estilo += ".imgLogo {display: flex; background-image: url('/assets/img/zapt-saude-logo1.jpeg'); width: 250px; height: 95px; align-itens: center; justify-content: center; border: none}";
+      estilo += ".headerZapt {font-size: 11px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 0.5fr 0.5fr; height: 90px}";
+      estilo += ".pacienteTitulo {font-size: 20px; display: flex; align-itens: center; justify-content: center; height: 40px; }";
+      estilo += ".dadosPaciente {font-size: 12px;padding: 5px;display: grid; grid-template-columns: 1.5fr 1fr 1fr; grid-template-rows: 0.5fr 0.5fr; gap: 10px;border: 2px solid gray; border-radius: 20px; margin-top: 15px; margin-bottom: -17px;padding-bottom: 10px}";
+      estilo += ".dadosResponsavel {font-size: 12px; padding: 5px; display: grid; grid-template-columns: 2fr 1.5fr; grid-template-rows: 0.5fr 0.5fr 0.5fr;gap: 10px; border: 2px solid gray; border-radius: 20px; margin-top: 15px;padding-bottom: 20px}";
+      estilo += ".prontuario {display: grid; align-itens: center; justify-content: center; height: 50px}";
+      estilo += "table {border-collapse: collapse;}";
+      estilo += "table tr, table td, table th {border: 2px solid gray;}";
+      estilo += "table td {height: 30px;}";
+      estilo += ".data { width: 90px;padding-top: 20px;font-size: 12px;}";
+      estilo += ".especialidade { width: 200px; padding-top: 20px;font-size: 12px;}";
+      estilo += ".tratativa { width: 350px; padding-top: 20px;font-size: 12px;}";
+      estilo += ".aa { width: 90px; padding-top: 20px;font-size: 12px;}";
+      estilo += "h4 { height: 5px; }";
+
+      
+      
       estilo += "</style>";
-      const win = window.open('','', 'height=700,width=700');
+      const win = window.open('','', 'height=700,width=900');
       win.document.write('<html><head>');
       win.document.write('<title>ZAPT SAÚDE</title>');
       win.document.write(estilo);
       win.document.write('</head>');
       win.document.write('<body>');
-      win.document.write(conteudo);
+      win.document.write(conteudo+tabela);
+      //win.document.write(tabela);
       win.document.write('</body></html>');
       win.print()
-      win.close()
+      //win.close()
       
-
-
 
        // Coloque aqui a lógica para imprimir o item com o ID 123
    } else {

@@ -43,10 +43,5 @@ export function registerLog(){
       }
       //getDataPessoa();
 
-function loadPage(){
-    window.onload = () => {
-        alert('teste')
-    }
-}
 
 
